@@ -1,0 +1,106 @@
+.active{
+    background-color: black;
+    border-radius: 20px;
+    padding:5px 6px;
+    color: white;
+  }
+.NavBarDiv{
+    display: flex;
+    height: 40px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: lightgray;
+    z-index: 100;
+
+}
+
+.opne{
+
+}
+.burgermenu-div{
+    display: none;
+    position: absolute;
+    height: 130px;
+    background-color:rgba(0, 0, 0, 0.514);
+    color: black;
+    left: 0;
+    right: 0;
+    top: 40px;
+}
+.burgermenu-div{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.burgermenu-div-close{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.Link{
+    text-decoration: none;
+    color: white;
+    margin: 3px 0px;
+}
+.title{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+     color:rgb(130, 180, 238);
+     margin: 0px;
+}
+
+.path-div{
+    text-decoration: none;
+    margin: 8px;
+}
+.path-div:active{
+    border-bottom: 1px solid black;
+}
+.path-div:hover{
+ 
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    transition: all 0.1s;
+}
+.burger-div{
+    display: none
+}
+
+.burger-div div{
+    display: none;
+}
+@media(max-width:480px){
+    .burgermenu-div{
+        display: flex;
+    }
+
+    .path-div{
+        display: none;
+    }
+    .burger-div{
+        display: flex;
+        flex-direction: column;
+    }
+    .burger-div div{
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(28, 26, 26);
+        width: 25px;
+        margin: 2px;
+        height: 5px;
+    
+    
+    }
+ 
+  
+}
+
+
