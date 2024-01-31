@@ -48,7 +48,7 @@ const ProductDetails = () => {
             <span style={{ fontSize: 15, marginLeft: 10 }}> 50% off</span>
           </p>
           <s className="product-strike-price">${productDetails?.price * 2}</s>
-          <span className="product-rating">
+          <span className="product-rating2">
             {productDetails?.rating && productDetails?.rating.rate}
             <IoMdStarOutline size={15} />
           </span>

@@ -46,7 +46,7 @@
   color: green;
   font-size: 26px;
 }
-.product-rating {
+.product-rating2 {
   display: flex;
   align-items: center;
   border: none;
@@ -65,6 +65,7 @@
 }
 .buttons-div button {
   margin: 0px 10px 5px 0px;
+cursor: pointer;
 }
 .add-to-cart-button {
   background-color: rgb(255, 159, 0);
