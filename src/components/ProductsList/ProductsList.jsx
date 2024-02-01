@@ -6,7 +6,7 @@ import { IoMdStarOutline } from "react-icons/io";
 import { getProducts } from "../../Store/productSlice";
 import {useDispatch,useSelector} from 'react-redux'
 const ProductsList = () => {
-  const {data:Products} =useSelector(state=>state.products)
+  const {data:Products,status} =useSelector(state=>state.products)
   const dispatch = useDispatch()
   // const [Products, setProducts] = useState([]);
   useEffect(() => {
@@ -58,6 +58,11 @@ const ProductsList = () => {
   const handleSearch=()=>{
     console.log(search)
   }
+
+  if(status=='Loading'){
+    return <p style={{marginTop:"100"}}>Loading...</p>
+  }
+ 
   return (
     <>
       <div className="add-banner-div" style={{ display: "flex", justifyContent: "center", alignItems: "center",objectFit:"contain" }}>
