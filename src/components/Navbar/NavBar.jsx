@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 const NavBar = () => {
   const [burgerMenu,setBurgerMenu] = useState(false)
   return (
-    <div className="NavBarDiv">
+    <div className="NavBarDiv" >
       <div>
         <h2 className="title">EasyBuy</h2>
       </div>
