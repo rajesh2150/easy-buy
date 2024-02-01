@@ -3,13 +3,18 @@ import "./ProductsList.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { IoMdStarOutline } from "react-icons/io";
-
+import { getProducts } from "../../Store/productSlice";
+import {useDispatch,useSelector} from 'react-redux'
 const ProductsList = () => {
-  const [Products, setProducts] = useState([]);
+  const {data:Products} =useSelector(state=>state.products)
+  const dispatch = useDispatch()
+  // const [Products, setProducts] = useState([]);
   useEffect(() => {
-    axios
-      .get("https://fakestoreapi.com/products")
-      .then((res) => setProducts(res.data));
+    dispatch(getProducts())
+
+    // axios
+    //   .get("https://fakestoreapi.com/products")
+    //   .then((res) => setProducts(res.data));
   
   }, []);
 
@@ -63,7 +68,7 @@ const ProductsList = () => {
         <button onClick={()=>handleSearch()}>Search</button>
       </div>
       <div className="product-div1">
-        {Products.map((Product) => (
+        {Products?.map((Product) => (
           <div className="Product-List-Div1" key={Product.id}>
             <div className="product-image-div1">
               <img src={Product.image} alt="product" className="product-image1" />
