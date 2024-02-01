@@ -18,6 +18,36 @@
     opacity: 0.8;
     transition: all 0.2s;
 }
+.search-div{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
+   
+}
+.search-input{
+    width: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    
+}
+.search-div button{
+    background-color: rgb(251, 27, 128);
+    color: white;
+    height: 38px;
+    border: none;
+    border-radius: 5px;
+    padding: 3px 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.search-div button:hover{
+    background-color:transparent;
+    color: rgb(251, 27, 128);
+    border: 1px solid rgb(251, 27, 128);
+    transition: all 0.4s;
+}
 .Product-List-Div1{
     display: flex;
     flex-direction: column;
@@ -85,8 +115,15 @@
         margin: 0.1px;
         border: 0.5px solid rgba(0, 0, 0, 0.166);
     }
+    .add-banner-div{
+        height: 200px;
+        width: 100%;
+        margin: 20px 0px 0px 0px;
+        object-fit: cover;
+
+    }
     .add-banner{
-        height: 180px;
+        height: 200px;
         width: 98%;
         object-fit: fill;
     }

@@ -4,8 +4,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { IoMdStarOutline } from "react-icons/io";
 import { FaArrowLeft,FaBoxOpen,FaMoneyBill,FaTrophy } from "react-icons/fa6";
-
+import {useDispatch} from 'react-redux'
+import { addTocart } from "../../Store/createSlice";
 const ProductDetails = () => {
+  const dispatch=useDispatch()
   const { id } = useParams();
 
   const [productDetails, setProductDetails] = useState();
@@ -21,6 +23,11 @@ const ProductDetails = () => {
     //handleHome function
     history("/");
   };
+  const handleAddToCart=(product)=>{
+    alert('Added To Cart')
+    dispatch(addTocart(product))
+
+  }
   const handleBuyNow = () => {
     //buy Now function
     alert("added to cart");
@@ -56,7 +63,7 @@ const ProductDetails = () => {
           <div className="buttons-div">
             <button
               className="add-to-cart-button"
-              onClick={() => handleBuyNow()}>
+              onClick={() => handleAddToCart(productDetails)}>
               Add To Cart
             </button>
             <button className="buy-now-button" onClick={() => handleBuyNow()}>

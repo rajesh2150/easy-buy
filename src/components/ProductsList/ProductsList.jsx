@@ -3,13 +3,18 @@ import "./ProductsList.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { IoMdStarOutline } from "react-icons/io";
-
+import { getProducts } from "../../Store/productSlice";
+import {useDispatch,useSelector} from 'react-redux'
 const ProductsList = () => {
-  const [Products, setProducts] = useState([]);
+  const {data:Products,status} =useSelector(state=>state.products)
+  const dispatch = useDispatch()
+  // const [Products, setProducts] = useState([]);
   useEffect(() => {
-    axios
-      .get("https://fakestoreapi.com/products")
-      .then((res) => setProducts(res.data));
+    dispatch(getProducts())
+
+    // axios
+    //   .get("https://fakestoreapi.com/products")
+    //   .then((res) => setProducts(res.data));
   
   }, []);
 
@@ -25,6 +30,12 @@ const ProductsList = () => {
   const imagesArray = [
     "https://m.media-amazon.com/images/G/31/img21/MA2023/Winterflip/P0/winter/hero/Van_heusen_3000x800._SX3000_QL85_FMpng_.png",
     "https://m.media-amazon.com/images/G/31/img21/MA2023/AFrevamp_winterflip/Menhero/Wimter_bestseller_3000x800._SX3000_QL85_FMpng_.png",
+    "https://m.media-amazon.com/images/G/31/img21/MA2023/Winterflip/P0/winter/hero/Fort_Collins_3000x800._SX3000_QL85_FMpng_.png",
+    "https://m.media-amazon.com/images/G/31/img23/Fashion/AF/JanART/tophero/Women-s-clothing_3000x800_17._SX3000_QL85_FMpng_.png",
+    "https://m.media-amazon.com/images/G/31/img23/Fashion/AF/Event/Jupiter23/Phase1/CML/Heros/3._CB575777439_.png",
+    "https://m.media-amazon.com/images/G/31/img23/Fashion/AF/Winterwearflip/topheros/cml-pc._SX3000_QL85_.jpg",
+    "https://m.media-amazon.com/images/G/31/img23/Fashion/AF/Event/Jupiter23/Phase1/CML/Heros/1-pc_1._CB575777439_.png",
+    "https://m.media-amazon.com/images/G/31/img23/Fashion/AF/JanART/top/hero/1/v1/Jewellery_3000x800._SX3000_QL85_FMpng_.png",
     "https://m.media-amazon.com/images/G/31/img21/MA2023/Winterflip/P0/winter/hero/new/USPA_3000x8001._SX3000_QL85_FMpng_.png"
   ];
   const [index, setIndex] = useState(0);
@@ -43,13 +54,26 @@ const ProductsList = () => {
     setImg(imagesArray[index]);
   }, [index, imagesArray]);
 
+  const [search,setSearch] = useState('')
+  const handleSearch=()=>{
+    console.log(search)
+  }
+
+  if(status=='Loading'){
+    return <p style={{marginTop:"100"}}>Loading...</p>
+  }
+ 
   return (
     <>
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <div className="add-banner-div" style={{ display: "flex", justifyContent: "center", alignItems: "center",objectFit:"contain" }}>
         <img className="add-banner" src={img} alt="Banner" />
       </div>
+      <div className="search-div">
+        <input onChange={(e)=>setSearch(e.target.value)} className="search-input" type="text" placeholder="search"/> 
+        <button onClick={()=>handleSearch()}>Search</button>
+      </div>
       <div className="product-div1">
-        {Products.map((Product) => (
+        {Products?.map((Product) => (
           <div className="Product-List-Div1" key={Product.id}>
             <div className="product-image-div1">
               <img src={Product.image} alt="product" className="product-image1" />
