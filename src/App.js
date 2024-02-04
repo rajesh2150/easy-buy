@@ -11,6 +11,7 @@ import FeedBackSuccessFull from './components/Navbar/ContactUS/FeedBackSuccessFu
 import FailurePage from './components/FailurePage/FailurePage';
 import {Provider} from 'react-redux'
 import storeCart from './Store/store';
+import Orders from './components/Orders/Orders';
 const App = () => {
   
   return (<>
@@ -25,6 +26,7 @@ const App = () => {
           <Route path='/feedback' element={<FeedBackSuccessFull/>}/>
           <Route path='/Aboutus' element={<AboutUs />}></Route>
           <Route path='/details/:id' element={<ProductDetails />}></Route>
+          <Route path='/Orders' element={<Orders/>}/>
           <Route path='*' element={<FailurePage/>}/>
         </Routes>
       </BrowserRouter>
