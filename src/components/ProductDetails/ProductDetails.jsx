@@ -6,6 +6,7 @@ import { IoMdStarOutline } from "react-icons/io";
 import { FaArrowLeft,FaBoxOpen,FaMoneyBill,FaTrophy } from "react-icons/fa6";
 import {useDispatch} from 'react-redux'
 import { addTocart } from "../../Store/createSlice";
+import { buynow } from "../../Store/orderSlice";
 const ProductDetails = () => {
   const dispatch=useDispatch()
   const { id } = useParams();
@@ -24,13 +25,15 @@ const ProductDetails = () => {
     history("/");
   };
   const handleAddToCart=(product)=>{
-    alert('Added To Cart')
+    history('/Cart')
     dispatch(addTocart(product))
 
   }
-  const handleBuyNow = () => {
+  const handleBuyNow = (product) => {
     //buy Now function
-    alert("added to cart");
+    console.log(product)
+    dispatch(buynow(product))
+    history('/Orders')
   };
 
   return (
@@ -66,7 +69,7 @@ const ProductDetails = () => {
               onClick={() => handleAddToCart(productDetails)}>
               Add To Cart
             </button>
-            <button className="buy-now-button" onClick={() => handleBuyNow()}>
+            <button className="buy-now-button" onClick={() => handleBuyNow(productDetails)}>
               Buy Now
             </button>
           </div>
