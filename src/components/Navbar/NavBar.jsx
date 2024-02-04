@@ -33,6 +33,7 @@ const NavBar = () => {
       <div className={burgerMenu ?  `burgermenu-div` : 'burgermenu-div-close'}>
         <NavLink onClick={()=>setBurgerMenu(!burgerMenu)} className="Link" to={'/'}>Home</NavLink>
         <NavLink onClick={()=>setBurgerMenu(!burgerMenu)} className="Link" to={'/Cart'}>Cart</NavLink>
+        <NavLink onClick={()=>setBurgerMenu(!burgerMenu)} className="Link" to={'/Orders'}>Orders</NavLink>
         <NavLink onClick={()=>setBurgerMenu(!burgerMenu)}className="Link" to={"/Contactus"}>Contactus</NavLink>
         <NavLink onClick={()=>setBurgerMenu(!burgerMenu)} className="Link"  to={"/Aboutus"}>Aboutus</NavLink>
         
