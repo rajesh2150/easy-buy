@@ -54,7 +54,7 @@ const ProductsList = () => {
     setImg(imagesArray[index]);
   }, [index, imagesArray]);
 
-  const [search,setSearch] = useState('')
+  const [search,setSearch] = useState('') //search 
   const handleSearch=()=>{
     console.log(search)
   }
@@ -73,7 +73,9 @@ const ProductsList = () => {
         <button onClick={()=>handleSearch()}>Search</button>
       </div>
       <div className="product-div1">
-        {Products?.map((Product) => (
+        {Products?.filter((item)=>{
+          return search.toLowerCase() === '' ? item : item.title.toLowerCase().includes(search.toLowerCase())
+        }).map((Product) => (
           <div className="Product-List-Div1" key={Product.id}>
             <div className="product-image-div1">
               <img src={Product.image} alt="product" className="product-image1" />
