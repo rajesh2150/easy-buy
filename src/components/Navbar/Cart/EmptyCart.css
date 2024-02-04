@@ -1,0 +1,25 @@
+/* EmptyCart.css */
+.empty-div{
+    background-color: white;
+}
+.empty-cart-container {
+display: flex;
+align-items: center;
+justify-content: center;
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px;
+}
+.image{
+    width:480px ;
+    margin: 0px auto;
+    height: fit-content;
+}
+.empty-cart-container h2 {
+  color: #333;
+}
+
+.empty-cart-container p {
+  color: #666;
+}
